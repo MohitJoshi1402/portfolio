@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohit Nilesh Joshi — Research Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #0A0A0A;
+  --ink-mid: #2A2A2A;
+  --ink-light: #5A5A5A;
+  --cream: #F5F0E8;
+  --cream-dark: #EDE7D9;
+  --gold: #B8922A;
+  --gold-light: #D4B060;
+  --gold-pale: #F5EDD8;
+  --teal: #1A5C5C;
+  --teal-light: #E8F2F2;
+  --red-accent: #8B2A2A;
+  --white: #FFFFFF;
+  --border: rgba(10,10,10,0.12);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ─── TYPOGRAPHY ─── */
+h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
+.mono { font-family: 'DM Mono', monospace; }
+
+/* ─── PRINT BREAKS ─── */
+@media print {
+  body { background: white; }
+  .no-print { display: none; }
+  section { page-break-inside: avoid; }
+}
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  background: var(--ink);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(184,146,42,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: 30%;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(26,92,92,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-left {
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 24px;
+}
+
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 6vw, 80px);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 8px;
+}
+
+.hero-name span {
+  display: block;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--gold-light);
+}
+
+.hero-title {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 40px;
+  letter-spacing: 0.5px;
+}
+
+.hero-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 32px;
+}
+
+.hero-bio {
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.8;
+  max-width: 440px;
+  margin-bottom: 48px;
+}
+
+.hero-bio strong {
+  color: var(--white);
+  font-weight: 500;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  max-width: 420px;
+}
+
+.contact-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.5);
+}
+
+.contact-chip .icon {
+  font-size: 13px;
+  color: var(--gold);
+  width: 16px;
+}
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 60px 80px 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.stats-headline {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+}
+
+.hero-stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.hero-stat {
+  border: 0.5px solid rgba(184,146,42,0.3);
+  padding: 20px;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-stat::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--gold);
+}
+
+.stat-big {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--gold-light);
+  line-height: 1;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.stat-sm {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+}
+
+.research-thread-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 14px;
+}
+
+.thread-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.thread-pill {
+  font-size: 11px;
+  font-weight: 400;
+  padding: 5px 12px;
+  border: 0.5px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.6);
+  border-radius: 1px;
+  letter-spacing: 0.3px;
+}
+
+.thread-pill.active {
+  background: rgba(184,146,42,0.15);
+  border-color: rgba(184,146,42,0.5);
+  color: var(--gold-light);
+}
+
+/* ─── NAV ─── */
+.nav {
+  position: sticky;
+  top: 0;
+  background: rgba(245,240,232,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 0.5px solid var(--border);
+  z-index: 100;
+  padding: 0 60px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  height: 52px;
+  no-print: true;
+}
+
+.nav-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  text-decoration: none;
+  padding: 0 18px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--ink);
+  border-bottom-color: var(--gold);
+}
+
+/* ─── SECTION WRAPPER ─── */
+.section-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 60px;
+}
+
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 48px;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--teal);
+}
+
+/* ─── RESEARCH TIMELINE ─── */
+#research { background: var(--cream); }
+
+.timeline { position: relative; }
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--gold), var(--teal), rgba(10,10,10,0.1));
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 32px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.timeline-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.node-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.node-done { background: var(--ink); color: var(--gold-light); }
+.node-upcoming { background: var(--cream-dark); border: 1.5px dashed var(--gold); color: var(--gold); }
+.node-final { background: var(--gold); color: var(--ink); }
+
+.node-status {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 1px;
+  margin-top: 6px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.status-done { color: var(--teal); }
+.status-upcoming { color: var(--gold); }
+
+.timeline-card {
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: 4px;
+  padding: 28px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+}
+
+.card-done::before { background: linear-gradient(90deg, var(--ink), var(--teal)); }
+.card-upcoming::before { background: linear-gradient(90deg, var(--gold), rgba(184,146,42,0.3)); }
+.card-final::before { background: linear-gradient(90deg, var(--gold), var(--teal)); }
+
+.card-semester {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 8px;
+}
+
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 14px;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.tag {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 3px 9px;
+  border-radius: 2px;
+  letter-spacing: 0.3px;
+}
+
+.tag-ink { background: var(--ink); color: var(--gold-light); }
+.tag-teal { background: var(--teal-light); color: var(--teal); border: 0.5px solid rgba(26,92,92,0.2); }
+.tag-gold { background: var(--gold-pale); color: var(--gold); border: 0.5px solid rgba(184,146,42,0.3); }
+.tag-light { background: var(--cream-dark); color: var(--ink-mid); border: 0.5px solid var(--border); }
+
+.card-desc {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--ink-mid);
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.card-metrics {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 0.5px solid var(--border);
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.metric-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.metric-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--ink-light);
+  letter-spacing: 0.5px;
+}
+
+/* ─── ANOVA TABLE ─── */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  margin-top: 18px;
+}
+
+.data-table th {
+  background: var(--ink);
+  color: var(--gold-light);
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 400;
+}
+
+.data-table td {
+  padding: 9px 14px;
+  border-bottom: 0.5px solid var(--border);
+  color: var(--ink-mid);
+  font-weight: 300;
+}
+
+.data-table tr:nth-child(even) td { background: var(--cream); }
+.data-table tr:last-child td { border-bottom: none; }
+
+.highlight-row td {
+  background: var(--gold-pale) !important;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* ─── HEAT TREATMENT GRID ─── */
+.ht-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.ht-card {
+  border: 0.5px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.ht-header {
+  background: var(--ink);
+  color: var(--gold-light);
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 10px 12px;
+  text-align: center;
+}
+
+.ht-body { padding: 12px; background: var(--white); }
+
+.ht-param {
+  font-size: 10px;
+  color: var(--ink-light);
+  line-height: 1.6;
+  font-weight: 300;
+  margin-bottom: 8px;
+  border-bottom: 0.5px solid var(--border);
+  padding-bottom: 6px;
+}
+
+.ht-prop {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9.5px;
+  color: var(--ink-mid);
+  padding: 2px 0;
+}
+
+.ht-prop span:last-child {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.prop-bar-wrap {
+  height: 3px;
+  background: var(--cream-dark);
+  border-radius: 2px;
+  margin: 4px 0 6px;
+  overflow: hidden;
+}
+
+.prop-bar { height: 100%; border-radius: 2px; }
+.bar-hardness { background: var(--ink); }
+.bar-ductility { background: var(--teal); }
+
+/* ─── WEAR CHART ─── */
+.wear-visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.chart-card {
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: 3px;
+  padding: 20px;
+}
+
+.chart-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin-bottom: 16px;
+}
+
+/* SVG bar chart */
+.bar-chart { width: 100%; }
+
+/* ─── SKILLS SECTION ─── */
+#skills { background: var(--ink); }
+
+#skills .section-title { color: var(--white); }
+#skills .section-label { color: var(--gold-light); }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.skill-block {
+  border: 0.5px solid rgba(255,255,255,0.1);
+  padding: 24px;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-block::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 2px;
+}
+
+.sb-gold::before { background: var(--gold); }
+.sb-teal::before { background: var(--teal); }
+.sb-red::before { background: var(--red-accent); }
+
+.skill-block-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.skill-list { list-style: none; }
+
+.skill-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  border-bottom: 0.5px solid rgba(255,255,255,0.07);
+  font-size: 12.5px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.65);
+}
+
+.skill-list li:last-child { border-bottom: none; }
+
+.skill-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+}
+
+.dot-high { background: var(--gold); }
+.dot-mid { background: var(--teal); }
+.dot-basic { background: rgba(255,255,255,0.3); }
+
+/* ─── EDUCATION ─── */
+#education { background: var(--cream-dark); }
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.edu-card {
+  background: var(--white);
+  border: 0.5px solid var(--border);
+  border-radius: 3px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.edu-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 60px; height: 60px;
+  background: var(--gold-pale);
+  border-radius: 60px 0 0 0;
+}
+
+.edu-level {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.edu-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.edu-inst {
+  font-size: 12px;
+  color: var(--ink-light);
+  margin-bottom: 16px;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.edu-score-big {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.edu-score-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--ink-light);
+  letter-spacing: 1px;
+  margin-top: 3px;
+}
+
+.cgpa-sem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.cgpa-sem {
+  background: var(--cream);
+  padding: 8px 10px;
+  border-radius: 2px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--ink-mid);
+  display: flex;
+  justify-content: space-between;
+}
+
+.cgpa-val { font-weight: 500; color: var(--ink); }
+
+/* ─── ACHIEVEMENTS ─── */
+#achievements { background: var(--white); }
+
+.ach-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.ach-card {
+  padding: 28px;
+  border: 0.5px solid var(--border);
+  border-radius: 3px;
+  background: var(--white);
+  position: relative;
+}
+
+.ach-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px;
+  font-weight: 300;
+  color: var(--cream-dark);
+  line-height: 1;
+  position: absolute;
+  top: 16px;
+  right: 20px;
+}
+
+.ach-badge-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 8.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+  display: inline-block;
+  background: var(--gold-pale);
+  padding: 3px 8px;
+  border-radius: 1px;
+}
+
+.ach-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 10px;
+  max-width: 200px;
+}
+
+.ach-desc {
+  font-size: 12.5px;
+  font-weight: 300;
+  color: var(--ink-light);
+  line-height: 1.7;
+}
+
+/* ─── FOOTER ─── */
+.footer {
+  background: var(--ink);
+  padding: 48px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.footer-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.footer-sub {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.4);
+}
+
+.footer-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.footer-contact {
+  font-family: 'DM Mono', monospace;
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.5);
+}
+
+.footer-contact strong { color: var(--gold-light); }
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-left > * {
+  animation: fadeUp 0.7s ease forwards;
+  opacity: 0;
+}
+.hero-eyebrow { animation-delay: 0.1s; }
+.hero-name { animation-delay: 0.25s; }
+.hero-title { animation-delay: 0.35s; }
+.hero-divider { animation-delay: 0.45s; }
+.hero-bio { animation-delay: 0.55s; }
+.contact-grid { animation-delay: 0.65s; }
+
+.hero-right > * {
+  animation: fadeUp 0.7s ease forwards;
+  opacity: 0;
+}
+.stats-headline { animation-delay: 0.4s; }
+.hero-stat-grid { animation-delay: 0.55s; }
+.research-thread-title { animation-delay: 0.65s; }
+.thread-pills { animation-delay: 0.75s; }
+
+/* ─── ADDITIONS: CFD / THERMAL ─── */
+.cx-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cx-card{background:var(--white);border:0.5px solid var(--border);border-radius:3px;padding:22px;border-left:3px solid var(--teal)}
+.cx-card.gold{border-left-color:var(--gold)}.cx-card.ink{border-left-color:var(--ink)}
+.cx-kicker{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.cx-card.gold .cx-kicker{color:var(--gold)}.cx-card.ink .cx-kicker{color:var(--ink-light)}
+.cx-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:8px}
+.cx-text{font-size:12.5px;font-weight:300;color:var(--ink-light);line-height:1.7}
+.cx-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:9px;font-weight:700;letter-spacing:1.5px;padding:3px 10px;border-radius:2px;background:var(--gold);color:var(--ink);margin-top:12px}
+.cx-badge.outline{background:transparent;border:1px solid var(--ink)}
+.cx-badge.teal{background:var(--teal);color:var(--white)}
+.cx-project{display:grid;grid-template-columns:1.15fr 1fr;gap:28px;background:var(--cream);border:0.5px solid var(--border);border-top:3px solid var(--gold);border-radius:3px;padding:28px;margin-bottom:20px;align-items:center}
+.cx-fig{background:var(--white);border:0.5px solid var(--border);border-radius:3px;padding:14px}
+.cx-fig svg{width:100%;height:auto;display:block}
+.cx-cap{font-family:'DM Mono',monospace;font-size:8.5px;letter-spacing:0.5px;color:var(--ink-light);margin-top:8px;line-height:1.5}
+.cx-list{list-style:none;margin:12px 0 0;padding:0}
+.cx-list li{font-size:12px;font-weight:300;color:var(--ink-mid);line-height:1.6;padding-left:14px;position:relative}
+.cx-list li::before{content:'–';position:absolute;left:0;color:var(--gold)}
+.cx-sub{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-light);margin:36px 0 18px}
+.cx-dark{background:rgba(255,255,255,0.04);border:0.5px solid rgba(255,255,255,0.1);border-radius:6px;padding:28px;margin-top:24px}
+@media (max-width:760px){
+  .cx-grid,.cx-project{grid-template-columns:1fr !important}
+  .nav{overflow-x:auto;padding:0 16px}.nav-link{white-space:nowrap;padding:0 12px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Research Portfolio · 2026</p>
+    <h1 class="hero-name">
+      Mohit<br>
+      Nilesh<br>
+      <span>Joshi</span>
+    </h1>
+    <p class="hero-title">B.Tech Mechanical Engineering · SGGSIE&T Nanded · Final Year 2026–27</p>
+    <div class="hero-divider"></div>
+    <p class="hero-bio">
+      Mechanical engineer specialising in <strong>Additive Manufacturing, Tribology,</strong> and <strong>Electrochemical Corrosion Analysis</strong>. Co-authored experimental wear study on SLM Ti6Al4V achieving <strong>R² = 90.25% predictive accuracy</strong>. Completed paid summer internship designing an <strong>Arduino-based potentiostat</strong> at Rs. 2,500 — replacing Rs. 25 lakh commercial instruments. Active in technical leadership at national level. Now extending this foundation into <strong>CFD, thermal analysis, fluid mechanics</strong> and engineering simulation using ANSYS Fluent, ANSYS Workbench and OpenFOAM, and seeking a six-month internship in thermal, steam or process engineering.
+    </p>
+    <div class="contact-grid">
+      <div class="contact-chip"><span class="icon">✆</span> +91 9552693620</div>
+      <div class="contact-chip"><span class="icon">✉</span> mohitfeb4693@gmail.com</div>
+      <div class="contact-chip"><span class="icon">in</span> linkedin/mohit-joshi-b4a8a7288</div>
+      <div class="contact-chip"><span class="icon">📍</span> Nanded, Maharashtra</div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <p class="stats-headline">Research at a Glance</p>
+    <div class="hero-stat-grid">
+      <div class="hero-stat">
+        <span class="stat-big">90.25%</span>
+        <span class="stat-sm">PREDICTIVE MODEL<br>ACCURACY (R²)</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-big">20</span>
+        <span class="stat-sm">RSM-CCD EXPERIMENTAL<br>RUNS CONDUCTED</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-big">5</span>
+        <span class="stat-sm">HEAT TREATMENT<br>MODELS ANALYZED</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-big">5</span>
+        <span class="stat-sm">LINKED RESEARCH<br>PROJECTS — AM Ti</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-big">3</span>
+        <span class="stat-sm">CFD &amp; THERMAL<br>SIMULATION STUDIES</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-big">2</span>
+        <span class="stat-sm">SIH 2026 CONCEPT<br>PROPOSALS</span>
+      </div>
+    </div>
+    <p class="research-thread-title">Research Focus Areas</p>
+    <div class="thread-pills">
+      <span class="thread-pill active">Additive Manufacturing</span>
+      <span class="thread-pill active">SLM · WAAM</span>
+      <span class="thread-pill active">Tribology</span>
+      <span class="thread-pill active">Ti6Al4V</span>
+      <span class="thread-pill">RSM · ANOVA</span>
+      <span class="thread-pill active">Corrosion Analysis</span>
+      <span class="thread-pill">Materials Science</span>
+      <span class="thread-pill">Heat Treatment</span>
+      <span class="thread-pill active">CFD</span>
+      <span class="thread-pill active">Thermal Analysis</span>
+      <span class="thread-pill active">Fluid Mechanics</span>
+      <span class="thread-pill">Engineering Simulation</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav class="nav no-print">
+  <a class="nav-link" href="#research">Research</a>
+  <a class="nav-link" href="#current-work">Now</a>
+  <a class="nav-link" href="#cfd-thermal">CFD &amp; Thermal</a>
+  <a class="nav-link" href="#wear-data">Wear Data</a>
+  <a class="nav-link" href="#microstructure">Microstructure</a>
+  <a class="nav-link" href="#other-projects">Projects</a>
+  <a class="nav-link" href="#sih">Hackathon</a>
+  <a class="nav-link" href="#skills">Skills</a>
+  <a class="nav-link" href="#education">Education</a>
+  <a class="nav-link" href="#internship">Internship</a>
+  <a class="nav-link" href="#achievements">Achievements</a>
+</nav>
+
+<!-- ═══════════════ RESEARCH TIMELINE ═══════════════ -->
+<section id="research">
+<div class="section-wrap">
+  <p class="section-label">Research Program</p>
+  <h2 class="section-title">A Progressive Study of<br><em>AM Titanium Tribology</em></h2>
+
+  <div class="timeline">
+
+    <!-- PROJECT 1 — DONE -->
+    <div class="timeline-item">
+      <div class="timeline-node">
+        <div class="node-circle node-done">1</div>
+        <span class="node-status status-done">COMPLETED<br>SEM 4</span>
+      </div>
+      <div class="timeline-card card-done">
+        <p class="card-semester">4th Semester · 3D Printing Subject Project</p>
+        <h3 class="card-title">Microstructural Characterization of SLM-Fabricated Ti6Al4V Under Various Heat Treatment Conditions</h3>
+        <div class="card-tags">
+          <span class="tag tag-ink">✓ Completed</span>
+          <span class="tag tag-teal">Optical Microscopy</span>
+          <span class="tag tag-teal">Phase Analysis</span>
+          <span class="tag tag-gold">5-Model Comparative Study</span>
+          <span class="tag tag-light">Ti6Al4V · SLM</span>
+        </div>
+        <p class="card-desc">
+          Investigated microstructural evolution of Ti6Al4V alloy fabricated via Selective Laser Melting across
+          five distinct heat treatment conditions — As-Built (0H), Mill Annealing (1H), Solution Treatment & Aging (2H),
+          β Annealing (3H), and β Solution Treatment with Overaging (4H). Etched surfaces examined using Kroll's reagent;
+          optical microscopy performed at 10×, 20×, 50×, and 100× magnification. Established qualitative
+          structure-property correlations mapping phase morphology to expected mechanical performance for each condition.
+        </p>
+        <div class="card-metrics">
+          <div class="metric"><span class="metric-val">5</span><span class="metric-label">Heat Treatment Models</span></div>
+          <div class="metric"><span class="metric-val">4×</span><span class="metric-label">Magnification Levels</span></div>
+          <div class="metric"><span class="metric-val">15+</span><span class="metric-label">Micrographs Analyzed</span></div>
+          <div class="metric"><span class="metric-val">α+β</span><span class="metric-label">Final Phase Structure</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 2 — DONE -->
+    <div class="timeline-item">
+      <div class="timeline-node">
+        <div class="node-circle node-done">2</div>
+        <span class="node-status status-done">COMPLETED<br>SEM 6</span>
+      </div>
+      <div class="timeline-card card-done">
+        <p class="card-semester">6th Semester · Co-Authored Research Paper</p>
+        <h3 class="card-title">Experimental Investigation on Wear Behaviour of SLM-Fabricated Ti-6Al-4V ELI (Grade 23) by Pin-on-Disc Tribometer</h3>
+        <div class="card-tags">
+          <span class="tag tag-ink">✓ Completed</span>
+          <span class="tag tag-teal">RSM-CCD Design</span>
+          <span class="tag tag-teal">ANOVA</span>
+          <span class="tag tag-gold">R² = 90.25%</span>
+          <span class="tag tag-light">ASTM G99-95a</span>
+          <span class="tag tag-light">Pin-on-Disc</span>
+        </div>
+        <p class="card-desc">
+          Systematic tribological investigation of SLM-fabricated Titanium Grade 23 against EN31 steel counter-face.
+          Applied Response Surface Methodology with Central Composite Design across 20 experimental runs. Input variables:
+          applied load (30–50 N), sliding speed (1–2 m/s), sliding distance (1000–2000 m). ANOVA confirmed sliding
+          distance as dominant factor contributing ~73% to WML. Developed quadratic regression predictive models.
+          Identified inverse CoF–speed relationship attributed to in-situ TiO₂ rutile tribo-oxide formation acting
+          as solid boundary lubricant at extreme conditions. Optimum parameters identified: 30 N · 1.0 m/s · 1000 m.
+        </p>
+        <div class="card-metrics">
+          <div class="metric"><span class="metric-val">90.25%</span><span class="metric-label">R² (WML Model)</span></div>
+          <div class="metric"><span class="metric-val">86.25%</span><span class="metric-label">R² (CoF Model)</span></div>
+          <div class="metric"><span class="metric-val">20</span><span class="metric-label">Experimental Runs</span></div>
+          <div class="metric"><span class="metric-val">0.02g</span><span class="metric-label">Min WML (Optimum)</span></div>
+          <div class="metric"><span class="metric-val">0.35</span><span class="metric-label">Min CoF (Optimum)</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 3 — UPCOMING -->
+    <div class="timeline-item">
+      <div class="timeline-node">
+        <div class="node-circle node-upcoming">3</div>
+        <span class="node-status status-upcoming">UPCOMING<br>SEM 7</span>
+      </div>
+      <div class="timeline-card card-upcoming">
+        <p class="card-semester">7th Semester · Major Project</p>
+        <h3 class="card-title">Wear Behaviour of Heat-Treated SLM-Fabricated Ti6Al4V Alloy</h3>
+        <div class="card-tags">
+          <span class="tag tag-gold">Upcoming</span>
+          <span class="tag tag-light">Tribology · Heat Treatment</span>
+          <span class="tag tag-light">SLM Ti6Al4V</span>
+          <span class="tag tag-light">Direct Continuation</span>
+        </div>
+        <p class="card-desc">
+          Direct convergence of Projects 1 and 2. Will investigate how each of the five heat treatment conditions
+          (MA, STA, BA, BSTO) modifies the tribological performance of SLM Ti6Al4V — linking microstructural state
+          to actual wear behaviour. Expected to reveal the optimum treatment for balancing hardness, ductility,
+          and wear resistance for biomedical/aerospace applications.
+        </p>
+      </div>
+    </div>
+
+    <!-- PROJECT 4 — UPCOMING -->
+    <div class="timeline-item">
+      <div class="timeline-node">
+        <div class="node-circle node-upcoming">4</div>
+        <span class="node-status status-upcoming">UPCOMING<br>SEM 7/8</span>
+      </div>
+      <div class="timeline-card card-upcoming">
+        <p class="card-semester">7th / 8th Semester · Major Project</p>
+        <h3 class="card-title">Wear Behaviour of WAAM-Fabricated Ti6Al4V Alloy</h3>
+        <div class="card-tags">
+          <span class="tag tag-gold">Upcoming</span>
+          <span class="tag tag-light">WAAM · DED</span>
+          <span class="tag tag-light">Wire Arc AM</span>
+          <span class="tag tag-light">Tribology</span>
+        </div>
+        <p class="card-desc">
+          Tribological investigation of Wire Arc Additive Manufactured Ti6Al4V using Pin-on-Disc testing with
+          RSM-based DOE. Builds directly on internship exposure to WAAM projects. Will include microstructural
+          and mechanical characterization of WAAM specimens for complete material state understanding.
+        </p>
+      </div>
+    </div>
+
+    <!-- PROJECT 5 — FINAL -->
+    <div class="timeline-item">
+      <div class="timeline-node">
+        <div class="node-circle node-final">5</div>
+        <span class="node-status status-upcoming">CAPSTONE<br>SEM 8</span>
+      </div>
+      <div class="timeline-card card-final">
+        <p class="card-semester">8th Semester · Capstone Major Project · Publication Target</p>
+        <h3 class="card-title">Comparative Study — SLM vs WAAM: Wear Performance of Ti6Al4V Alloy</h3>
+        <div class="card-tags">
+          <span class="tag tag-ink">Publication Target</span>
+          <span class="tag tag-teal">SLM vs WAAM</span>
+          <span class="tag tag-gold">Capstone Study</span>
+          <span class="tag tag-light">Comprehensive Comparison</span>
+        </div>
+        <p class="card-desc">
+          Capstone comparative investigation synthesising all prior work into a unified tribological study.
+          Systematic analysis of differences in wear mechanisms, mass loss, friction behaviour, and microstructural
+          evolution between SLM and WAAM Ti6Al4V. Combines all prior microstructural, heat treatment, and wear data.
+          Targeted for journal publication — closing a gap in AM tribology literature.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════ WEAR DATA ═══════════════ -->
+<section id="wear-data" style="background: var(--cream-dark);">
+<div class="section-wrap">
+  <p class="section-label">Project 2 — Key Data</p>
+  <h2 class="section-title">Wear Study <em>Results & Analysis</em></h2>
+
+  <div class="wear-visual">
+
+    <div class="chart-card">
+      <p class="chart-title">ANOVA — Factor Contribution to WML (%)</p>
+      <svg class="bar-chart" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="barGold" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#B8922A"/>
+            <stop offset="100%" stop-color="#D4B060"/>
+          </linearGradient>
+          <linearGradient id="barTeal" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#1A5C5C"/>
+            <stop offset="100%" stop-color="#2A8080"/>
+          </linearGradient>
+          <linearGradient id="barInk" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#2A2A2A"/>
+            <stop offset="100%" stop-color="#4A4A4A"/>
+          </linearGradient>
+        </defs>
+        <!-- Y axis -->
+        <line x1="70" y1="10" x2="70" y2="148" stroke="#E0DAD0" stroke-width="0.5"/>
+        <!-- Grid lines -->
+        <line x1="70" y1="148" x2="310" y2="148" stroke="#E0DAD0" stroke-width="0.5"/>
+        <line x1="70" y1="100" x2="310" y2="100" stroke="#E0DAD0" stroke-width="0.5" stroke-dasharray="3,3"/>
+        <line x1="70" y1="60" x2="310" y2="60" stroke="#E0DAD0" stroke-width="0.5" stroke-dasharray="3,3"/>
+        <!-- Labels -->
+        <text x="65" y="152" text-anchor="end" font-size="8" fill="#6B6B6B" font-family="DM Mono, monospace">0%</text>
+        <text x="65" y="104" text-anchor="end" font-size="8" fill="#6B6B6B" font-family="DM Mono, monospace">50%</text>
+        <text x="65" y="64" text-anchor="end" font-size="8" fill="#6B6B6B" font-family="DM Mono, monospace">80%</text>
+        <!-- Bars -->
+        <!-- Sliding Distance ~73% -->
+        <rect x="82" y="51" width="50" height="97" fill="url(#barGold)" rx="1"/>
+        <text x="107" y="46" text-anchor="middle" font-size="9" fill="#B8922A" font-family="DM Mono, monospace" font-weight="500">~73%</text>
+        <text x="107" y="165" text-anchor="middle" font-size="8" fill="#5A5A5A" font-family="Outfit, sans-serif">Slide Dist.</text>
+        <!-- Applied Load ~7% -->
+        <rect x="152" y="138" width="50" height="10" fill="url(#barTeal)" rx="1"/>
+        <text x="177" y="133" text-anchor="middle" font-size="9" fill="#1A5C5C" font-family="DM Mono, monospace" font-weight="500">~7%</text>
+        <text x="177" y="165" text-anchor="middle" font-size="8" fill="#5A5A5A" font-family="Outfit, sans-serif">Load</text>
+        <!-- Slide Speed ~2% -->
+        <rect x="222" y="143" width="50" height="5" fill="url(#barInk)" rx="1"/>
+        <text x="247" y="138" text-anchor="middle" font-size="9" fill="#4A4A4A" font-family="DM Mono, monospace" font-weight="500">~2%</text>
+        <text x="247" y="165" text-anchor="middle" font-size="8" fill="#5A5A5A" font-family="Outfit, sans-serif">Speed</text>
+      </svg>
+    </div>
+
+    <div class="chart-card">
+      <p class="chart-title">CoF vs Sliding Distance — Trend</p>
+      <svg class="bar-chart" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#B8922A"/>
+            <stop offset="100%" stop-color="#1A5C5C"/>
+          </linearGradient>
+        </defs>
+        <line x1="50" y1="10" x2="50" y2="148" stroke="#E0DAD0" stroke-width="0.5"/>
+        <line x1="50" y1="148" x2="310" y2="148" stroke="#E0DAD0" stroke-width="0.5"/>
+        <line x1="50" y1="40" x2="310" y2="40" stroke="#E0DAD0" stroke-width="0.5" stroke-dasharray="3,3"/>
+        <line x1="50" y1="80" x2="310" y2="80" stroke="#E0DAD0" stroke-width="0.5" stroke-dasharray="3,3"/>
+        <line x1="50" y1="120" x2="310" y2="120" stroke="#E0DAD0" stroke-width="0.5" stroke-dasharray="3,3"/>
+        <!-- Y axis labels -->
+        <text x="44" y="44" text-anchor="end" font-size="8" fill="#6B6B6B" font-family="DM Mono, monospace">0.44</text>
+        <text x="44" y="84" text-anchor="end" font-size="8" fill="#6B6B6B" font-family="DM Mono, monospace">0.40</text>
+        <text x="44" y="124" text-anchor="end" font-size="8" fill="#6B6B6B" font-family="DM Mono, monospace">0.36</text>
+        <text x="44" y="152" text-anchor="end" font-size="8" fill="#6B6B6B" font-family="DM Mono, monospace">0.35</text>
+        <!-- X axis labels -->
+        <text x="70" y="163" text-anchor="middle" font-size="8" fill="#6B6B6B" font-family="Outfit, sans-serif">659m</text>
+        <text x="140" y="163" text-anchor="middle" font-size="8" fill="#6B6B6B" font-family="Outfit, sans-serif">1000m</text>
+        <text x="210" y="163" text-anchor="middle" font-size="8" fill="#6B6B6B" font-family="Outfit, sans-serif">1500m</text>
+        <text x="295" y="163" text-anchor="middle" font-size="8" fill="#6B6B6B" font-family="Outfit, sans-serif">2341m</text>
+        <!-- CoF curve — generally rises then drops at extreme -->
+        <polyline points="70,123 140,40 180,82 210,78 250,82 295,147" 
+          fill="none" stroke="url(#lineGrad)" stroke-width="2" stroke-linejoin="round"/>
+        <!-- Data points -->
+        <circle cx="70" cy="123" r="3.5" fill="#B8922A"/>
+        <circle cx="140" cy="40" r="3.5" fill="#B8922A"/>
+        <circle cx="180" cy="82" r="3.5" fill="#8A6A1A"/>
+        <circle cx="210" cy="78" r="3.5" fill="#8A6A1A"/>
+        <circle cx="250" cy="82" r="3.5" fill="#1A5C5C"/>
+        <circle cx="295" cy="147" r="4" fill="#1A5C5C"/>
+        <!-- TiO2 annotation -->
+        <line x1="295" y1="147" x2="270" y2="110" stroke="#1A5C5C" stroke-width="0.7" stroke-dasharray="3,2"/>
+        <text x="268" y="107" text-anchor="end" font-size="7.5" fill="#1A5C5C" font-family="Outfit, sans-serif">TiO₂ lubrication</text>
+        <text x="268" y="117" text-anchor="end" font-size="7.5" fill="#1A5C5C" font-family="Outfit, sans-serif">effect at extreme</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ANOVA TABLE -->
+  <div style="margin-top: 32px;">
+    <p style="font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-light); margin-bottom: 12px;">ANOVA Results — Coefficient of Friction Model</p>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Source</th>
+          <th>SS</th>
+          <th>DOF</th>
+          <th>F-Value</th>
+          <th>p-value</th>
+          <th>% Contribution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td><strong>C – Sliding Distance</strong></td>
+          <td>0.0051</td>
+          <td>1</td>
+          <td>34.18</td>
+          <td>0.0002</td>
+          <td><strong>46.79%</strong></td>
+        </tr>
+        <tr class="highlight-row">
+          <td><strong>B – Sliding Speed</strong></td>
+          <td>0.0028</td>
+          <td>1</td>
+          <td>18.40</td>
+          <td>0.0016</td>
+          <td><strong>25.69%</strong></td>
+        </tr>
+        <tr>
+          <td>A – Applied Load</td>
+          <td>0.0005</td>
+          <td>1</td>
+          <td>3.16</td>
+          <td>0.1058</td>
+          <td>4.59%</td>
+        </tr>
+        <tr>
+          <td>Interactions (AB, AC, BC)</td>
+          <td>0.0009</td>
+          <td>3</td>
+          <td>2.08</td>
+          <td>0.179</td>
+          <td>8.25%</td>
+        </tr>
+        <tr>
+          <td>Residual</td>
+          <td>0.0015</td>
+          <td>10</td>
+          <td>—</td>
+          <td>—</td>
+          <td>13.76%</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-family: 'DM Mono', monospace; font-size: 9px; color: var(--ink-light); margin-top: 8px;">R² = 86.25% (CoF Model) &nbsp;·&nbsp; R² = 90.25% (WML Model) &nbsp;·&nbsp; Model F-value = 10.28 (significant at 95% CI)</p>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════ MICROSTRUCTURE ═══════════════ -->
+<section id="microstructure" style="background: var(--white);">
+<div class="section-wrap">
+  <p class="section-label">Project 1 — Heat Treatment Study</p>
+  <h2 class="section-title">Microstructural Evolution<br><em>Across 5 Treatment Conditions</em></h2>
+
+  <div class="ht-grid">
+
+    <div class="ht-card">
+      <div class="ht-header">0H — As-Built</div>
+      <div class="ht-body">
+        <p class="ht-param">No post-processing. Fine α′ martensitic structure from rapid SLM cooling.</p>
+        <div class="ht-prop"><span>Hardness</span><span>Very High</span></div>
+        <div class="prop-bar-wrap"><div class="prop-bar bar-hardness" style="width:95%"></div></div>
+        <div class="ht-prop"><span>Ductility</span><span>Very Low</span></div>
+        <div class="prop-bar-wrap"><div class="prop-bar bar-ductility" style="width:8%"></div></div>
+        <div class="ht-prop"><span>Phase</span><span>α′ Martensite</span></div>
+        <div class="ht-prop"><span>Structure</span><span>Metastable</span></div>
+      </div>
+    </div>
+
+    <div class="ht-card">
+      <div class="ht-header">1H — Mill Annealed</div>
+      <div class="ht-body">
+        <p class="ht-param">730°C / 2h / Air Cool. Partial stress relief, onset of α′ decomposition.</p>
+        <div class="ht-prop"><span>Hardness</span><span>High</span></div>
+        <div class="prop-bar-wrap"><div class="prop-bar bar-hardness" style="width:75%"></div></div>
+        <div class="ht-prop"><span>Ductility</span><span>Low–Moderate</span></div>
+        <div class="prop-bar-wrap"><div class="prop-bar bar-ductility" style="width:30%"></div></div>
+        <div class="ht-prop"><span>Phase</span><span>α′ + α + β</span></div>
+        <div class="ht-prop"><span>Structure</span><span>Transitional</span></div>
+      </div>
+    </div>
+
+    <div class="ht-card">
+      <div class="ht-header">2H — STA</div>
+      <div class="ht-body">
+        <p class="ht-param">940°C/1h WQ + 550°C/4h AC. Refined α+β lamellar structure.</p>
+        <div class="ht-prop"><span>Hardness</span><span>Moderate</span></div>
+        <div class="prop-bar-wrap"><div class="prop-bar bar-hardness" style="width:50%"></div></div>
+        <div class="ht-prop"><span>Ductility</span><span>Moderate</span></div>
+        <div class="prop-bar-wrap"><div class="prop-bar bar-ductility" style="width:50%"></div></div>
+        <div class="ht-prop"><span>Phase</span><span>α + β (lamellar)</span></div>
+        <div class="ht-prop"><span>Structure</span><span>Balanced</span></div>
+      </div>
+    </div>
+
+    <div class="ht-card">
+      <div class="ht-header">3H — β Annealed</div>
+      <div class="ht-body">
+        <p class="ht-param">1040°C/0.5h AC + 730°C/2h AC. Coarse α colonies, grain growth.</p>
+        <div class="ht-prop"><span>Hardness</span><span>Low</span></div>
+        <div class="prop-bar-wrap"><div class="prop-bar bar-hardness" style="width:28%"></div></div>
+        <div class="ht-prop"><span>Ductility</span><span>High</span></div>
+        <div class="prop-bar-wrap"><div class="prop-bar bar-ductility" style="width:75%"></div></div>
+        <div class="ht-prop"><span>Phase</span><span>α + β (coarse)</span></div>
+        <div class="ht-prop"><span>Structure</span><span>Recrystallized</span></div>
+      </div>
+    </div>
+
+    <div class="ht-card">
+      <div class="ht-header">4H — BSTO</div>
+      <div class="ht-body">
+        <p class="ht-param">1040°C/0.5h WQ + 730°C/2h AC. Fully stabilized, overaged equiaxed grains.</p>
+        <div class="ht-prop"><span>Hardness</span><span>Lowest</span></div>
+        <div class="prop-bar-wrap"><div class="prop-bar bar-hardness" style="width:12%"></div></div>
+        <div class="ht-prop"><span>Ductility</span><span>Very High</span></div>
+        <div class="prop-bar-wrap"><div class="prop-bar bar-ductility" style="width:95%"></div></div>
+        <div class="ht-prop"><span>Phase</span><span>Overaged α + β</span></div>
+        <div class="ht-prop"><span>Structure</span><span>Fully Stabilized</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════ OTHER PROJECTS ═══════════════ -->
+<!-- ═══════════════ CURRENTLY WORKING ON ═══════════════ -->
+<section id="current-work" style="background: var(--cream-dark);">
+<div class="section-wrap">
+  <p class="section-label">Latest Direction</p>
+  <h2 class="section-title">Currently <em>Working On</em></h2>
+  <div class="cx-grid">
+    <div class="cx-card gold"><p class="cx-kicker">01 · ANSYS Workbench</p><h4 class="cx-title">Transient Thermal Analysis of WAAM</h4><p class="cx-text">Heat transfer during wire arc deposition, studied through temperature distribution and thermal cycles.</p><span class="cx-badge teal">LATEST SIMULATION STUDY</span></div>
+    <div class="cx-card gold"><p class="cx-kicker">02 · ANSYS Fluent</p><h4 class="cx-title">T-Junction Mixing of Two Fluids</h4><p class="cx-text">A CFD model of two streams meeting in a T-tube, tracking mixing, flow and temperature fields.</p><span class="cx-badge">ONGOING</span></div>
+    <div class="cx-card gold"><p class="cx-kicker">03 · OpenFOAM + ANSYS Fluent</p><h4 class="cx-title">Hydrogen Jet Combustion &amp; NOx Formation</h4><p class="cx-text">How operating parameters shift combustion behaviour and NOx trends in a hydrogen jet.</p><span class="cx-badge">ONGOING — MAJOR PROJECT</span></div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════ CFD / THERMAL ═══════════════ -->
+<section id="cfd-thermal" style="background: var(--white);">
+<div class="section-wrap">
+  <p class="section-label">Thermal &amp; CFD Engineering</p>
+  <h2 class="section-title">CFD · Thermal · <em>Fluid Systems</em></h2>
+  <p class="cx-text" style="max-width:720px;margin-bottom:32px">The research programme above began with additive manufacturing, materials, tribology and corrosion. These simulation projects extend it into heat transfer, fluid flow and combustion. Figures here are conceptual sketches; no simulation output is shown.</p>
+  <div class="cx-project">
+    <div><p class="cx-kicker" style="color:var(--gold)">Current Work · WAAM · ANSYS Workbench (Transient Thermal)</p><h3 class="cx-title" style="font-size:22px">Transient Thermal Analysis of Wire Arc Additive Manufacturing</h3>
+    <p class="cx-text">Earlier WAAM exposure was experimental: the research internship on low-carbon steel and ER70S-6 parameter optimisation. This study looks at the same process computationally, modelling how heat moves through the part during deposition and drawing process-level conclusions from the temperature fields.</p><ul class="cx-list"><li>Heat input defined for the deposition process</li><li>Thermal boundary conditions and material properties set up</li><li>Temperature distribution and thermal cycles examined</li><li>Simulated fields interpreted into process-level findings</li></ul><span class="cx-badge teal">SIMULATION STUDY · COMPLETED</span></div>
+    <div class="cx-fig"><svg viewBox="0 0 320 175" role="img" aria-label="Conceptual WAAM heat flow"><defs><marker id="ah1" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#8B2A2A"/></marker></defs>
+<rect x="30" y="122" width="260" height="26" fill="#E8F2F2" stroke="#1A5C5C"/>
+<rect x="95" y="109" width="130" height="13" fill="#F5EDD8" stroke="#B8922A"/><rect x="108" y="96" width="104" height="13" fill="#F5EDD8" stroke="#B8922A"/>
+<rect x="148" y="8" width="24" height="22" fill="#0A0A0A"/><line x1="160" y1="30" x2="160" y2="84" stroke="#0A0A0A" stroke-width="2"/><circle cx="160" cy="90" r="7" fill="#B8922A"/>
+<path d="M142 104 L128 122" stroke="#8B2A2A" stroke-width="1.5" marker-end="url(#ah1)"/><path d="M160 104 L160 124" stroke="#8B2A2A" stroke-width="1.5" marker-end="url(#ah1)"/><path d="M178 104 L192 122" stroke="#8B2A2A" stroke-width="1.5" marker-end="url(#ah1)"/>
+<g font-family="DM Mono,monospace" font-size="8.5" fill="#5A5A5A"><text x="178" y="22">arc + wire feed</text><text x="178" y="62">heat input</text><text x="232" y="106">deposited layers</text><text x="36" y="164">conduction into substrate / thermal cycles</text><text x="36" y="138">substrate</text></g></svg><p class="cx-cap">CONCEPTUAL ILLUSTRATION — NOT SIMULATION OUTPUT</p></div>
+  </div>
+
+  <div class="cx-project">
+    <div><p class="cx-kicker" style="color:var(--gold)">ANSYS Fluent · Ongoing</p><h3 class="cx-title" style="font-size:22px">T-Junction Mixing of Two Fluids — CFD Study</h3>
+    <p class="cx-text">A model of two streams meeting in a T-shaped tube. The aim is to see how the inlet conditions and the downstream boundaries change what happens in the mixing region.</p><ul class="cx-list"><li>Inlet velocity and inlet temperature variation</li><li>Fluid-property variation between the two streams</li><li>Outlet and wall boundary conditions</li><li>Velocity field, temperature field and mixing behaviour</li><li>Pressure drop across the junction</li></ul><span class="cx-badge">ONGOING</span></div>
+    <div class="cx-fig"><svg viewBox="0 0 320 175" role="img" aria-label="Conceptual T-junction mixing"><defs><marker id="ah2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#0A0A0A"/></marker></defs>
+<rect x="20" y="40" width="120" height="30" fill="#E8F2F2" stroke="#1A5C5C"/><rect x="180" y="40" width="120" height="30" fill="#F5EDD8" stroke="#B8922A"/><rect x="140" y="70" width="40" height="85" fill="#EDE7D9" stroke="#5A5A5A"/>
+<rect x="140" y="40" width="40" height="30" fill="none" stroke="#0A0A0A" stroke-dasharray="3 2"/>
+<line x1="30" y1="55" x2="100" y2="55" stroke="#0A0A0A" marker-end="url(#ah2)"/><line x1="290" y1="55" x2="220" y2="55" stroke="#0A0A0A" marker-end="url(#ah2)"/><line x1="160" y1="78" x2="160" y2="140" stroke="#0A0A0A" marker-end="url(#ah2)"/>
+<g font-family="DM Mono,monospace" font-size="8.5" fill="#5A5A5A"><text x="26" y="32">stream A inlet</text><text x="214" y="32">stream B inlet</text><text x="146" y="22">mixing region</text><text x="188" y="118">outlet</text><text x="188" y="130">(pressure drop)</text></g></svg><p class="cx-cap">CONCEPTUAL ILLUSTRATION — NOT SIMULATION OUTPUT</p></div>
+  </div>
+
+  <div class="cx-project">
+    <div><p class="cx-kicker" style="color:var(--gold)">OpenFOAM + ANSYS Fluent · Major Project</p><h3 class="cx-title" style="font-size:22px">CFD Study of Hydrogen Jet Combustion and NOx Formation</h3>
+    <p class="cx-text">A numerical study of a hydrogen jet burning in its surroundings, bringing together fluid mechanics, combustion behaviour and thermal effects. Operating parameters are varied to see how combustion and NOx formation trends respond.</p><ul class="cx-list"><li>Jet flow and combustion behaviour modelled</li><li>Parametric analysis of operating conditions</li><li>NOx formation trends and thermal effects</li><li>Numerical simulation in OpenFOAM and ANSYS Fluent</li></ul><span class="cx-badge">ONGOING — MAJOR PROJECT</span></div>
+    <div class="cx-fig"><svg viewBox="0 0 320 175" role="img" aria-label="Conceptual hydrogen jet combustion"><defs><marker id="ah3" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#0A0A0A"/></marker></defs>
+<rect x="14" y="68" width="34" height="34" fill="#0A0A0A"/><polygon points="48,78 48,92 185,56 185,114" fill="#E8F2F2" stroke="#1A5C5C"/>
+<ellipse cx="228" cy="85" rx="48" ry="34" fill="#F5EDD8" stroke="#B8922A" stroke-dasharray="4 3"/><ellipse cx="228" cy="85" rx="24" ry="16" fill="#8B2A2A" opacity="0.22"/>
+<line x1="228" y1="124" x2="228" y2="148" stroke="#0A0A0A" marker-end="url(#ah3)"/>
+<g font-family="DM Mono,monospace" font-size="8.5" fill="#5A5A5A"><text x="10" y="116">H₂ nozzle</text><text x="82" y="62">hydrogen jet</text><text x="190" y="38">combustion zone</text><text x="160" y="164">temperature field → NOx trends</text></g></svg><p class="cx-cap">CONCEPTUAL ILLUSTRATION — NOT SIMULATION OUTPUT</p></div>
+  </div>
+
+  <p class="cx-sub">Simulation Track</p>
+  <div class="timeline">
+    <div class="timeline-item"><div class="timeline-node"><div class="node-circle node-done">A</div><span class="node-status status-done">STUDY<br>COMPLETED</span></div>
+      <div class="timeline-card card-done"><p class="card-semester">Thermal Analysis · ANSYS Workbench</p><h3 class="card-title">Transient Thermal Analysis of WAAM</h3>
+      <div class="card-tags"><span class="tag tag-ink">Simulation</span><span class="tag tag-teal">Heat Transfer</span><span class="tag tag-light">WAAM</span></div>
+      <p class="card-desc">From experimental WAAM exposure to computational thermal analysis of the deposition process.</p></div></div>
+    <div class="timeline-item"><div class="timeline-node"><div class="node-circle node-upcoming">B</div><span class="node-status status-upcoming">ONGOING</span></div>
+      <div class="timeline-card card-upcoming"><p class="card-semester">Fluid Mixing · ANSYS Fluent</p><h3 class="card-title">T-Junction Mixing of Two Fluids</h3>
+      <div class="card-tags"><span class="tag tag-gold">Ongoing</span><span class="tag tag-light">CFD</span><span class="tag tag-light">Mixing</span></div>
+      <p class="card-desc">Flow, temperature and pressure-drop behaviour where two streams meet.</p></div></div>
+    <div class="timeline-item"><div class="timeline-node"><div class="node-circle node-final">C</div><span class="node-status status-upcoming">ONGOING<br>MAJOR</span></div>
+      <div class="timeline-card card-final"><p class="card-semester">Combustion · OpenFOAM + ANSYS Fluent</p><h3 class="card-title">Hydrogen Jet Combustion and NOx Formation</h3>
+      <div class="card-tags"><span class="tag tag-ink">Major Project</span><span class="tag tag-gold">Ongoing</span><span class="tag tag-teal">NOx</span></div>
+      <p class="card-desc">Parametric CFD of combustion behaviour and NOx trends in a hydrogen jet.</p></div></div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════ SMART INDIA HACKATHON ═══════════════ -->
+<section id="sih" style="background: var(--cream-dark);">
+<div class="section-wrap">
+  <p class="section-label">Ideation</p>
+  <h2 class="section-title">Smart India <em>Hackathon 2026</em></h2>
+  <div class="cx-grid" style="grid-template-columns:repeat(2,1fr)">
+    <div class="cx-card ink"><p class="cx-kicker">Concept · Dairy cold chain</p><h4 class="cx-title">Low-Cost Milk Chilling System</h4><p class="cx-text">An idea for chilling milk affordably, aimed at settings where conventional cooling equipment is costly.</p><span class="cx-badge outline">CONCEPT / PROPOSAL</span></div>
+    <div class="cx-card ink"><p class="cx-kicker">Concept · Safety instrumentation</p><h4 class="cx-title">Disposable H₂S Exposure Dosimeter</h4><p class="cx-text">An idea for a single-use device that records a person's exposure to hydrogen sulfide.</p><span class="cx-badge outline">CONCEPT / PROPOSAL</span></div>
+  </div>
+  <p class="cx-cap" style="margin-top:14px">SUBMITTED AS IDEAS · NOT PROTOTYPED</p>
+</div>
+</section>
+
+<section id="other-projects" style="background: var(--cream);">
+<div class="section-wrap">
+  <p class="section-label">Academic & Technical Projects</p>
+  <h2 class="section-title">All <em>Semester Projects</em></h2>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+
+    <div style="background: var(--white); border: 0.5px solid var(--border); border-radius: 3px; padding: 22px; border-left: 3px solid var(--teal);">
+      <p style="font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1.5px; color: var(--teal); margin-bottom: 8px; text-transform: uppercase;">5th Semester</p>
+      <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 8px; line-height: 1.3;">Design & Analysis of High-Performance E-Powertrain for Electric ATV</h4>
+      <p style="font-size: 12.5px; font-weight: 300; color: var(--ink-light); line-height: 1.7;">Case study covering motor selection, drivetrain layout, gear ratio optimization, and power delivery analysis for a high-performance electric all-terrain vehicle powertrain system.</p>
+    </div>
+
+    <div style="background: var(--white); border: 0.5px solid var(--border); border-radius: 3px; padding: 22px; border-left: 3px solid var(--gold);">
+      <p style="font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1.5px; color: var(--gold); margin-bottom: 8px; text-transform: uppercase;">3rd Semester</p>
+      <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 8px; line-height: 1.3;">Verification of First Law of Thermodynamics for Steady Flow Devices (Blowers)</h4>
+      <p style="font-size: 12.5px; font-weight: 300; color: var(--ink-light); line-height: 1.7;">Experimental verification of energy balance across a blower using SFEE. Measured inlet/outlet conditions, calculated work and heat interactions, verified thermodynamic relationships.</p>
+    </div>
+
+    <div style="background: var(--white); border: 0.5px solid var(--border); border-radius: 3px; padding: 22px; border-left: 3px solid var(--ink);">
+      <p style="font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1.5px; color: var(--ink-light); margin-bottom: 8px; text-transform: uppercase;">Lab Project</p>
+      <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 8px; line-height: 1.3;">Pin-on-Disc Wear Testing — Aluminium, Brass & EN8 Materials</h4>
+      <p style="font-size: 12.5px; font-weight: 300; color: var(--ink-light); line-height: 1.7;">Comparative tribological study across three common engineering materials. Hands-on operation of wear test machine, data collection, result analysis and comparison.</p>
+    </div>
+
+    <div style="background: var(--white); border: 0.5px solid var(--border); border-radius: 3px; padding: 22px; border-left: 3px solid var(--teal);">
+      <p style="font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1.5px; color: var(--teal); margin-bottom: 8px; text-transform: uppercase;">Overview Study</p>
+      <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 8px; line-height: 1.3;">Influence of Heat Treatment on Microstructure & Mechanical Performance of Ti6Al4V in LPBF</h4>
+      <p style="font-size: 12.5px; font-weight: 300; color: var(--ink-light); line-height: 1.7;">Literature-based review on how LPBF process parameters and post-processing conditions affect phase evolution and mechanical behaviour in Ti6Al4V alloy.</p>
+    </div>
+
+    <div style="background: var(--white); border: 0.5px solid var(--border); border-radius: 3px; padding: 22px; border-left: 3px solid var(--gold);">
+      <p style="font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1.5px; color: var(--gold); margin-bottom: 8px; text-transform: uppercase;">Theory of Machines</p>
+      <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 8px; line-height: 1.3;">Hand Pump Mechanism Model</h4>
+      <p style="font-size: 12.5px; font-weight: 300; color: var(--ink-light); line-height: 1.7;">Kinematic analysis and working model fabrication. Applied four-bar linkage theory to real mechanism design, analysed motion, displacement, and force transmission.</p>
+    </div>
+
+    <div style="background: var(--white); border: 0.5px solid var(--border); border-radius: 3px; padding: 22px; border-left: 3px solid var(--ink);">
+      <p style="font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1.5px; color: var(--ink-light); margin-bottom: 8px; text-transform: uppercase;">1st Semester</p>
+      <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 8px; line-height: 1.3;">IoT-Based Agricultural Monitoring System</h4>
+      <p style="font-size: 12.5px; font-weight: 300; color: var(--ink-light); line-height: 1.7;">Sensor-based system for real-time soil moisture, temperature and environment monitoring using IoT framework. Interdisciplinary electronics and programming project.</p>
+    </div>
+
+    <div style="background: var(--white); border: 0.5px solid var(--border); border-radius: 3px; padding: 22px; border-left: 3px solid var(--teal); grid-column: span 2;">
+      <p style="font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1.5px; color: var(--teal); margin-bottom: 8px; text-transform: uppercase;">2nd Semester · Seminar</p>
+      <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 8px; line-height: 1.3;">Introduction to KP (Kepner-Tregoe) Problem-Solving Methodology</h4>
+      <p style="font-size: 12.5px; font-weight: 300; color: var(--ink-light); line-height: 1.7;">Presented seminar on KP analytical problem-solving and decision-making methodology — a structured approach to situation appraisal, problem analysis, decision analysis, and potential problem analysis used in engineering and management contexts.</p>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════ SKILLS ═══════════════ -->
+<section id="skills">
+<div class="section-wrap">
+  <p class="section-label">Capabilities</p>
+  <h2 class="section-title" style="color: var(--white);">Technical <em style="color: var(--gold-light);">Skills & Tools</em></h2>
+
+  <div class="skills-grid">
+
+    <div class="skill-block sb-gold">
+      <h3 class="skill-block-title">Manufacturing</h3>
+      <ul class="skill-list">
+        <li>Additive Mfg — SLM <span class="skill-dot dot-high"></span></li>
+        <li>Additive Mfg — WAAM <span class="skill-dot dot-high"></span></li>
+        <li>3D Printing & Rapid Prototyping <span class="skill-dot dot-high"></span></li>
+        <li>CNC Milling & Routing <span class="skill-dot dot-mid"></span></li>
+        <li>Laser Cutting <span class="skill-dot dot-mid"></span></li>
+        <li>Industrial Robotics <span class="skill-dot dot-basic"></span></li>
+      </ul>
+    </div>
+
+    <div class="skill-block sb-teal">
+      <h3 class="skill-block-title">Materials & Testing</h3>
+      <ul class="skill-list">
+        <li>Material Characterization <span class="skill-dot dot-high"></span></li>
+        <li>Optical Microscopy <span class="skill-dot dot-high"></span></li>
+        <li>Heat Treatment Processes <span class="skill-dot dot-high"></span></li>
+        <li>Pin-on-Disc Wear Testing <span class="skill-dot dot-high"></span></li>
+        <li>Metallographic Preparation <span class="skill-dot dot-high"></span></li>
+        <li>SEM Analysis (exposure) <span class="skill-dot dot-mid"></span></li>
+        <li>Electrochemical Corrosion Testing (ASTM G5/G102) <span class="skill-dot dot-mid"></span></li>
+      </ul>
+    </div>
+
+    <div class="skill-block sb-red">
+      <h3 class="skill-block-title">Analysis & Data</h3>
+      <ul class="skill-list">
+        <li>RSM & ANOVA <span class="skill-dot dot-high"></span></li>
+        <li>Statistical Modelling <span class="skill-dot dot-high"></span></li>
+        <li>MS Excel / Google Sheets <span class="skill-dot dot-high"></span></li>
+        <li>Design Expert Software <span class="skill-dot dot-high"></span></li>
+        <li>Technical Documentation <span class="skill-dot dot-high"></span></li>
+        <li>Research Report Writing <span class="skill-dot dot-high"></span></li>
+        <li>Python (Tafel / data pipelines) <span class="skill-dot dot-mid"></span></li>
+        <li>Arduino / C++ <span class="skill-dot dot-mid"></span></li>
+      </ul>
+    </div>
+
+    <div class="skill-block sb-gold">
+      <h3 class="skill-block-title">CAD & Simulation</h3>
+      <ul class="skill-list">
+        <li>AutoCAD <span class="skill-dot dot-mid"></span></li>
+        <li>Fusion 360 <span class="skill-dot dot-mid"></span></li>
+        <li>SolidWorks <span class="skill-dot dot-mid"></span></li>
+        <li>Ansys (Basic) <span class="skill-dot dot-basic"></span></li>
+      </ul>
+    </div>
+
+    <div class="skill-block sb-teal">
+      <h3 class="skill-block-title">Domain Knowledge</h3>
+      <ul class="skill-list">
+        <li>Tribology & Wear Mechanisms <span class="skill-dot dot-high"></span></li>
+        <li>Phase Transformation Metallurgy <span class="skill-dot dot-high"></span></li>
+        <li>EV Powertrain Systems <span class="skill-dot dot-mid"></span></li>
+        <li>Thermodynamics <span class="skill-dot dot-mid"></span></li>
+        <li>Theory of Machines <span class="skill-dot dot-mid"></span></li>
+      </ul>
+    </div>
+
+    <div class="skill-block sb-red">
+      <h3 class="skill-block-title">Soft Skills</h3>
+      <ul class="skill-list">
+        <li>Leadership & Coordination <span class="skill-dot dot-high"></span></li>
+        <li>Financial Management <span class="skill-dot dot-high"></span></li>
+        <li>Event Management <span class="skill-dot dot-high"></span></li>
+        <li>Problem Solving <span class="skill-dot dot-high"></span></li>
+        <li>Communication (EN/HI/MR) <span class="skill-dot dot-high"></span></li>
+      </ul>
+    </div>
+
+    <div class="skill-block sb-gold">
+      <h3 class="skill-block-title">CFD / CAE</h3>
+      <ul class="skill-list">
+        <li>ANSYS Fluent <span class="skill-dot dot-mid"></span></li>
+        <li>ANSYS Workbench — Transient Thermal <span class="skill-dot dot-mid"></span></li>
+        <li>OpenFOAM <span class="skill-dot dot-basic"></span></li>
+        <li>FEM / FEA <span class="skill-dot dot-basic"></span></li>
+      </ul>
+    </div>
+
+    <div class="skill-block sb-teal">
+      <h3 class="skill-block-title">Thermal &amp; Fluid</h3>
+      <ul class="skill-list">
+        <li>Transient Heat Transfer <span class="skill-dot dot-mid"></span></li>
+        <li>Fluid Flow &amp; Mixing Analysis <span class="skill-dot dot-mid"></span></li>
+        <li>Combustion &amp; NOx Modelling <span class="skill-dot dot-basic"></span></li>
+        <li>Thermal Analysis <span class="skill-dot dot-mid"></span></li>
+        <li>Steady-Flow Energy Balance <span class="skill-dot dot-mid"></span></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════ EDUCATION ═══════════════ -->
+<section id="education">
+<div class="section-wrap">
+  <p class="section-label">Academic Background</p>
+  <h2 class="section-title">Education <em>& Academic Record</em></h2>
+
+  <div class="edu-grid">
+
+    <div class="edu-card" style="border-top: 3px solid var(--gold);">
+      <p class="edu-level">B.Tech · 2023–2027</p>
+      <h3 class="edu-name">Mechanical Engineering</h3>
+      <p class="edu-inst">SGGSIE&T, Vishnupuri, Nanded<br>Swami Ramanand Teerth Marathwada University</p>
+      <div class="edu-score-big">7.26</div>
+      <p class="edu-score-label">CGPA (Upto 6th Sem)</p>
+      <div class="cgpa-sem-grid">
+        <div class="cgpa-sem">Sem 1 <span class="cgpa-val">7.59</span></div>
+        <div class="cgpa-sem">Sem 2 <span class="cgpa-val">7.55</span></div>
+        <div class="cgpa-sem">Sem 3 <span class="cgpa-val">7.56</span></div>
+        <div class="cgpa-sem">Sem 4 <span class="cgpa-val">7.68</span></div>
+        <div class="cgpa-sem">Sem 5 <span class="cgpa-val">7.41</span></div>
+        <div class="cgpa-sem">Sem 6 <span class="cgpa-val">7.26</span></div>
+      </div>
+    </div>
+
+    <div class="edu-card" style="border-top: 3px solid var(--teal);">
+      <p class="edu-level">HSC · Class 12th</p>
+      <h3 class="edu-name">Science (PCMB)</h3>
+      <p class="edu-inst">K. Narkhede Jr. College, Bhusawal<br>Maharashtra State Board</p>
+      <div class="edu-score-big">65%</div>
+      <p class="edu-score-label">Maharashtra State Board</p>
+    </div>
+
+    <div class="edu-card" style="border-top: 3px solid var(--ink);">
+      <p class="edu-level">SSC · Class 10th</p>
+      <h3 class="edu-name">Secondary School</h3>
+      <p class="edu-inst">SAS Convent High School, Bhusawal<br>Maharashtra State Board</p>
+      <div class="edu-score-big">88.60%</div>
+      <p class="edu-score-label">Maharashtra State Board</p>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════ ACHIEVEMENTS ═══════════════ -->
+<section id="achievements" style="background: var(--cream-dark);">
+<div class="section-wrap">
+  <p class="section-label">Leadership & Responsibilities</p>
+  <h2 class="section-title">Achievements &<br><em>Institute Contributions</em></h2>
+
+  <div class="ach-grid">
+
+    <div class="ach-card">
+      <span class="ach-number">01</span>
+      <span class="ach-badge-label">Treasurer</span>
+      <h3 class="ach-title">Team Phoenix — BAJA Club</h3>
+      <p class="ach-desc">Managed team finances, procurement, budgeting, and accounts for the official BAJA SAE motorsport club of SGGSIE&T. Responsible for complete financial operations of the technical team. Handled a budget of about Rs. 23 lakh.</p>
+    </div>
+
+    <div class="ach-card">
+      <span class="ach-number">02</span>
+      <span class="ach-badge-label">General Coordinator</span>
+      <h3 class="ach-title">PRAGYAA 2026 — National Fest</h3>
+      <p class="ach-desc">Served as Finance Lead and General Coordinator for PRAGYAA 2026 — a National Level Socio-Technical Fest. Managed sponsorships, event budgeting, procurement and documentation at national scale. The Rs. 6.5 lakh fest budget closed with a Rs. 3.5 lakh surplus.</p>
+    </div>
+
+    <div class="ach-card">
+      <span class="ach-number">03</span>
+      <span class="ach-badge-label">Technical Advisor</span>
+      <h3 class="ach-title">Multi-Club Finance & Documentation</h3>
+      <p class="ach-desc">Served as technical advisor for documentation, permissions, finance and accounts across multiple institute clubs and events. Consistently handled budgeting and procurement for technical teams.</p>
+    </div>
+
+
+    <div class="ach-card">
+      <span class="ach-number">04</span>
+      <span class="ach-badge-label">Certifications</span>
+      <h3 class="ach-title">Workshops &amp; Training</h3>
+      <p class="ach-desc">CNC Routing &amp; Milling Workshop; Industrial Robotics Training; Additive Manufacturing Seminar; 3D Printing Workshop.</p>
+    </div>
+
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════ INTERNSHIP ═══════════════ -->
+<section id="internship" style="background: var(--ink);">
+<div class="section-wrap">
+  <p class="section-label" style="color:var(--gold-light);">Internship & Training</p>
+  <h2 class="section-title" style="color:var(--white);">Hands-on <em style="color:var(--gold-light);">Industrial Experience</em></h2>
+
+  <!-- PAID SUMMER INTERNSHIP CARD -->
+  <div style="background: linear-gradient(135deg, #1B2E42 0%, #0C1B2E 100%); border: 1px solid rgba(196,154,42,0.4); border-radius: 6px; padding: 36px; margin-bottom: 24px; position: relative; overflow: hidden;">
+    <div style="position:absolute; top:0; left:0; width:100%; height:4px; background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));"></div>
+    <div style="position:absolute; top:20px; right:24px;">
+      <span style="background:var(--gold); color:var(--ink); font-family:'DM Mono',monospace; font-size:9px; font-weight:700; letter-spacing:2px; padding:4px 12px; border-radius:2px;">PAID INTERNSHIP</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:36px; align-items:start;">
+      <div>
+        <p style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">Summer Internship · 2026–27 · Jun–Jul 2026</p>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:var(--white); line-height:1.3; margin-bottom:8px;">Design & Development of an Arduino-Based Potentiostat for Electrochemical Corrosion Testing of Aluminium</h3>
+        <p style="font-size:12px; font-weight:300; color:rgba(255,255,255,0.4); margin-bottom:20px;">Dept. of Mechanical Engineering · SGGSIE&T Nanded · Guided by Prof. Mahendra D. Sukre</p>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:20px;">
+          <div style="background:rgba(255,255,255,0.05); border:0.5px solid rgba(196,154,42,0.25); border-radius:3px; padding:12px; text-align:center;">
+            <span style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; color:var(--gold-light); display:block; line-height:1;">₹2,500</span>
+            <span style="font-family:'DM Mono',monospace; font-size:7px; color:rgba(255,255,255,0.35); letter-spacing:0.5px; display:block; margin-top:4px; line-height:1.4;">BUILT COST<br>vs ₹25L COMMERCIAL</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.05); border:0.5px solid rgba(196,154,42,0.25); border-radius:3px; padding:12px; text-align:center;">
+            <span style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; color:var(--gold-light); display:block; line-height:1;">0.1624</span>
+            <span style="font-family:'DM Mono',monospace; font-size:7px; color:rgba(255,255,255,0.35); letter-spacing:0.5px; display:block; margin-top:4px; line-height:1.4;">mm/year<br>CORROSION RATE</span>
+          </div>
+          <div style="background:rgba(255,255,255,0.05); border:0.5px solid rgba(196,154,42,0.25); border-radius:3px; padding:12px; text-align:center;">
+            <span style="font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; color:var(--gold-light); display:block; line-height:1;">&lt;0.02%</span>
+            <span style="font-family:'DM Mono',monospace; font-size:7px; color:rgba(255,255,255,0.35); letter-spacing:0.5px; display:block; margin-top:4px; line-height:1.4;">TEST REPEATABILITY<br>DEVIATION</span>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          <span style="font-family:'DM Mono',monospace; font-size:9px; padding:3px 9px; background:rgba(196,154,42,0.15); border:0.5px solid rgba(196,154,42,0.35); color:var(--gold-light); border-radius:2px;">Arduino C++ Firmware</span>
+          <span style="font-family:'DM Mono',monospace; font-size:9px; padding:3px 9px; background:rgba(196,154,42,0.15); border:0.5px solid rgba(196,154,42,0.35); color:var(--gold-light); border-radius:2px;">Python Data Pipeline</span>
+          <span style="font-family:'DM Mono',monospace; font-size:9px; padding:3px 9px; background:rgba(196,154,42,0.15); border:0.5px solid rgba(196,154,42,0.35); color:var(--gold-light); border-radius:2px;">ASTM G5-14</span>
+          <span style="font-family:'DM Mono',monospace; font-size:9px; padding:3px 9px; background:rgba(196,154,42,0.15); border:0.5px solid rgba(196,154,42,0.35); color:var(--gold-light); border-radius:2px;">ASTM G102</span>
+          <span style="font-family:'DM Mono',monospace; font-size:9px; padding:3px 9px; background:rgba(196,154,42,0.15); border:0.5px solid rgba(196,154,42,0.35); color:var(--gold-light); border-radius:2px;">Circuit Design (LM324)</span>
+          <span style="font-family:'DM Mono',monospace; font-size:9px; padding:3px 9px; background:rgba(196,154,42,0.15); border:0.5px solid rgba(196,154,42,0.35); color:var(--gold-light); border-radius:2px;">Electrochemical Testing</span>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div style="border-left:3px solid var(--gold); background:rgba(255,255,255,0.04); border-radius:0 3px 3px 0; padding:14px 16px;">
+          <p style="font-size:11px; font-weight:500; color:var(--white); margin-bottom:4px;">Hardware Design</p>
+          <p style="font-size:11px; font-weight:300; color:rgba(255,255,255,0.5); line-height:1.6;">Arduino Uno (ATmega328P) + LM324 quad op-amp analog front-end + ±9V split supply. Full three-electrode potentiostat at Rs. 2,500 vs commercial alternatives at Rs. 5–25 lakh.</p>
+        </div>
+        <div style="border-left:3px solid var(--gold-light); background:rgba(255,255,255,0.04); border-radius:0 3px 3px 0; padding:14px 16px;">
+          <p style="font-size:11px; font-weight:500; color:var(--white); margin-bottom:4px;">Experimental Testing — ASTM G5-14</p>
+          <p style="font-size:11px; font-weight:300; color:rgba(255,255,255,0.5); line-height:1.6;">Potentiodynamic polarization (PDP) scans on AA1100 aluminium in 5% NaCl at 25°C. −300 mV to +500 mV at 1 mV/s. 800 data points per scan. Two independent tests with &lt;0.02% repeatability.</p>
+        </div>
+        <div style="border-left:3px solid rgba(196,154,42,0.5); background:rgba(255,255,255,0.04); border-radius:0 3px 3px 0; padding:14px 16px;">
+          <p style="font-size:11px; font-weight:500; color:var(--white); margin-bottom:4px;">Python Analysis Pipeline</p>
+          <p style="font-size:11px; font-weight:300; color:rgba(255,255,255,0.5); line-height:1.6;">Automated post-processing: Tafel curve generation, linear polarization, Icorr extraction (44.96 µA/cm²), and ASTM G102 corrosion rate calculation yielding 0.1624 mm/year.</p>
+        </div>
+        <div style="border-left:3px solid var(--teal); background:rgba(255,255,255,0.04); border-radius:0 3px 3px 0; padding:14px 16px;">
+          <p style="font-size:11px; font-weight:500; color:var(--white); margin-bottom:4px;">Arduino Firmware</p>
+          <p style="font-size:11px; font-weight:300; color:rgba(255,255,255,0.5); line-height:1.6;">Custom state-machine firmware with Timer1 PWM reconfiguration (31,250 Hz), 30-sample ADC averaging for noise reduction, automatic OCP stability detection, and serial data streaming.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESEARCH INTERNSHIP -->
+  <div style="background:rgba(255,255,255,0.04); border:0.5px solid rgba(255,255,255,0.1); border-radius:6px; padding:28px; display:grid; grid-template-columns:1fr 1fr; gap:28px;">
+    <div>
+      <p style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:10px;">Research Internship · 2nd Year · Aug 2024 – Mar 2025</p>
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--white); line-height:1.3; margin-bottom:6px;">Minor & Major Project Research Assistance</h3>
+      <p style="font-size:12px; font-weight:300; color:rgba(255,255,255,0.35); margin-bottom:14px;">SGGSIE&T Nanded · Final Year Student Projects</p>
+      <p style="font-size:13px; font-weight:300; color:rgba(255,255,255,0.6); line-height:1.8;">Worked alongside final-year students on two advanced WAAM research projects at the Department of Mechanical Engineering, gaining early exposure to cutting-edge AM processes and RSM-based research methodology.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px; justify-content:center;">
+      <div style="border:0.5px solid rgba(196,154,42,0.3); border-radius:3px; padding:14px 16px; border-left:3px solid var(--gold);">
+        <p style="font-size:12px; font-weight:400; color:var(--white); margin-bottom:3px;">WAAM Comparative Study</p>
+        <p style="font-size:11px; font-weight:300; color:rgba(255,255,255,0.45); line-height:1.5;">Microstructure & Mechanical Analysis of WAAM-Fabricated Low Carbon Alloy Steel vs. Wrought Steel</p>
+      </div>
+      <div style="border:0.5px solid rgba(26,92,92,0.4); border-radius:3px; padding:14px 16px; border-left:3px solid var(--teal);">
+        <p style="font-size:12px; font-weight:400; color:var(--white); margin-bottom:3px;">RSM Parametric Optimization</p>
+        <p style="font-size:11px; font-weight:300; color:rgba(255,255,255,0.45); line-height:1.5;">Parametric Optimization in WAAM of ER70S-6 Wire using Response Surface Methodology</p>
+      </div>
+      <div style="border:0.5px solid rgba(255,255,255,0.1); border-radius:3px; padding:14px 16px; border-left:3px solid rgba(255,255,255,0.3);">
+        <p style="font-size:12px; font-weight:400; color:var(--white); margin-bottom:3px;">Hands-on Lab Exposure</p>
+        <p style="font-size:11px; font-weight:300; color:rgba(255,255,255,0.45); line-height:1.5;">CNC Milling · Laser Cutting · Industrial Robotics · 3D Printing · Pin-on-Disc Wear Testing</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- E-POWERTRAIN -->
+  <div class="cx-dark">
+    <p style="font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:10px;">Team Phoenix (BAJA SAE) · e-BAJA SAEINDIA 2026</p>
+    <h3 style="font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--white); line-height:1.3; margin-bottom:10px;">E-Powertrain Department</h3>
+    <p style="font-size:13px; font-weight:300; color:rgba(255,255,255,0.6); line-height:1.8;">Specified a 72 V / 5 kW PMSM motor, a 72 V / 80 Ah Li-ion pack and a two-stage gearbox with a ratio of 7, then checked the choices against a 57 km/h top speed and 45% gradeability through torque calculations. FMEA on the gearbox and welded joints guided the selection of 20MnCr5.</p>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer">
+  <div>
+    <h2 class="footer-name">Mohit Nilesh Joshi</h2>
+    <p class="footer-sub">B.Tech Mechanical Engineering · SGGSIE&T Nanded · Final Year 2026–27<br>Reg. No: 2023BME006</p>
+  </div>
+  <div class="footer-contacts">
+    <p class="footer-contact"><strong>Phone</strong> &nbsp; +91 9552693620</p>
+    <p class="footer-contact"><strong>Email</strong> &nbsp; mohitfeb4693@gmail.com</p>
+    <p class="footer-contact"><strong>LinkedIn</strong> &nbsp; linkedin.com/in/mohit-joshi-b4a8a7288</p>
+    <p class="footer-contact"><strong>Institute</strong> &nbsp; 2023bme006@sggs.ac.in</p>
+  </div>
+</footer>
+
+</body>
+</html>
